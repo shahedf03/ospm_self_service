@@ -66,10 +66,10 @@ class ServiceModel<T> {
   }
 
   String stringNullableJson(
-    Map<String, dynamic> json,
-    String key, {
-    String value = "",
-  }) {
+      Map<String, dynamic> json,
+      String key, {
+        String value = "",
+      }) {
     return json[key] == null ? value : json[key].toString();
   }
 
@@ -83,3 +83,4 @@ class ServiceModel<T> {
   bool boolNullableJson(Map<String, dynamic> json, String key) {
     return json[key] ?? false;
   }}
+

@@ -1,32 +1,85 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../provider/setting/theme_provider.dart';
 
-//Colors
-/// Primary
- const Color primary = Color(0xFF1E88E5); // Blue (Main buttons)
- const Color primaryLight = Color(0xFFEAF1FF);
+class AppColors {
 
-/// Backgrounds
- const Color scaffoldBackground = Color(0xFFF8F9FB);
- const Color cardBackground = Color(0xFFFFFFFF);
+ /// ================= PRIMARY =================
 
-/// Text
- const Color textPrimary = Color(0xFF1E1E1E);
- const Color textSecondary = Color(0xFF7A7A7A);
- const Color textHint = Color(0xFFB0B0B0);
+ static Color backgroundPrimary(BuildContext context) {
+  final isDark = context.read<ThemeProvider>().isDark;
+  return isDark ? const Color(0xFF062F1F) : Colors.white;
+ }
 
-/// Borders & Dividers
- const Color border = Color(0xFFE0E0E0);
- const Color divider = Color(0xFFEAEAEA);
+ static const Color primaryLight = Color(0xFFEAF1FF);
 
-/// Buttons
- const Color buttonPrimary = primary;
- const Color buttonDisabled = Color(0xFFB3D1F7);
+ static Color primary(BuildContext context) {
+  final isDark = context.read<ThemeProvider>().isDark;
+  return isDark ? const Color(0xFF0B3D2A) : const Color(0xFFF5F7F6);
+ }
 
-/// Status
- const Color success = Color(0xFF2BB673);
- const Color error = Color(0xFFE53935);
- const Color warning = Color(0xFFFFA000);
+ static Color primary2(BuildContext context) {
+  final isDark = context.read<ThemeProvider>().isDark;
+  return isDark ? const Color(0xFF0E4A32) : const Color(0xFFE5E7EB);
+ }
 
-/// Icons
- const Color iconPrimary = primary;
- const Color iconSecondary = Color(0xFF9E9E9E);
+ /// ================= BACKGROUNDS =================
+
+ static Color scaffoldBackground(BuildContext context) {
+  final isDark = context.read<ThemeProvider>().isDark;
+  return isDark ? const Color(0xFF062F1F) : Colors.white;
+ }
+
+ static Color cardBackground(BuildContext context) {
+  final isDark = context.read<ThemeProvider>().isDark;
+  return isDark ? const Color(0xFF0B3D2A) : Colors.white;
+ }
+
+ /// ================= TEXT =================
+
+ static Color textPrimary(BuildContext context) {
+  final isDark = context.read<ThemeProvider>().isDark;
+  return isDark ? Colors.white : const Color(0xFF111827); // أسود ناعم
+ }
+
+ static Color textSecondary(BuildContext context) {
+  final isDark = context.read<ThemeProvider>().isDark;
+  return isDark ? Colors.white70 : const Color(0xFF6B7280); // رمادي مرتب
+ }
+
+ static Color textHint(BuildContext context) {
+  final isDark = context.read<ThemeProvider>().isDark;
+  return isDark ? const Color(0xFF9DB6A5) : const Color(0xFF9CA3AF);
+ }
+
+ /// ================= BORDERS =================
+
+ static Color border(BuildContext context) {
+  final isDark = context.read<ThemeProvider>().isDark;
+  return isDark ? const Color(0xFF1B5E3C) : const Color(0xFFE5E7EB);
+ }
+
+ static const Color divider = Color(0xFFEAEAEA);
+
+ /// ================= BUTTONS =================
+
+ static const Color buttonPrimary = Color(0xFF1ED760);
+ static const Color buttonDisabled = Color(0xFFB3D1F7);
+
+ /// ================= STATUS =================
+
+ static const Color success = Color(0xFF2BB673);
+ static const Color error = Color(0xFFE53935);
+ static const Color warning = Color(0xFFFFA000);
+
+ /// ================= ICONS =================
+
+ static Color iconPrimary(BuildContext context) {
+  return buttonPrimary; // ثابت في الحالتين
+ }
+
+ static Color iconSecondary(BuildContext context) {
+  final isDark = context.read<ThemeProvider>().isDark;
+  return isDark ? const Color(0xFF9E9E9E) : const Color(0xFF6B7280);
+ }
+}

@@ -4,6 +4,25 @@ import 'package:get/get.dart';
 import 'constants/layout_theme.dart';
 
 class Helper {
+  static String formatTimeTo12Hour(String time24) {
+    try {
+      final parts = time24.split(':');
+      int hour = int.parse(parts[0]);
+      int minute = int.parse(parts[1]);
+
+      String period = hour >= 12 ? "PM" : "AM";
+
+      hour = hour % 12;
+      if (hour == 0) hour = 12;
+
+      return minute == 0
+          ? "$hour $period"
+          : "$hour:${minute.toString().padLeft(2, '0')} $period";
+    } catch (e) {
+      return time24;
+    }
+  }
+
   static ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
       messageWarning(String title, BuildContext context) {
     GlobalKey<ScaffoldMessengerState>();
@@ -85,7 +104,6 @@ class Helper {
         behavior: SnackBarBehavior.floating,
         content: Text(title, style: TextStyle(fontSize: 12.0.sp))));
   }
-
 
 
   static ScaffoldFeatureController<SnackBar, SnackBarClosedReason>

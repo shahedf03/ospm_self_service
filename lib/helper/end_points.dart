@@ -7,11 +7,11 @@ String imagePath = 'assets/images/';
 String iconPath = 'assets/icons/';
 
 String baseUrl() {
-  if (box.read('ip_address').toString().startsWith("#")) {
-    return "https://${box.read('ip_address').toString().substring(1)}/Olives_POS_API/api/";
-  } else {
-    return "http://${box.read('ip_address')}/Olives_POS_API/api/";
-  }
+  // if (box.read('ip_address').toString().startsWith("#")) {
+    return "https://${box.read('ip_address')}/Olives_OCPM_API/api";
+  // } else {
+  //   return "http://${box.read('ip_address')}/Olives_OCPM_API/api";
+  // }
 }
 
 //

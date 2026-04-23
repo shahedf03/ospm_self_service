@@ -1,13 +1,14 @@
 
 //FETCH OP
-const String getPurchasesTypesOp = "SystemCodes/GetCF_PurchasesType";
-const String getUserPermissionOp="User/GetCF_UserPermission";
-const String getUserBranchesOP="Company/GetCF_UserBranch";
-const String getSalesReportOp="Reports/GetCF_SalesReport";
-const String getPurchasesReportOP="Reports/GetCF_PurchasesReport";
-const String getPaymentReportOP="Reports/GetCF_PaymentReport";
-const String getDeleteCFTransactionOp="Transaction/DeleteCF_Transaction";
+const String getCars ="/Profile/GetCars";
+const String getAllDataForConsumerOp ="/Setting/GetAllDataForConsumer";
+const String getProfileDataOp ="/Profile/GetProfileData";
+const String getChargersTypesOp ="/Profile/GetChargersTypes";
+
+
 //POST OP
-const String loginOp = "User/GetCF_User";
-const String addTransactionOp = "Transaction/AddCF_Transaction";
-const String updateTransactionOp = "Transaction/UpdateCF_Transaction";
+const String  addNewVerificationCode = "/Customers/AddNewVerificationCode";
+const String validateVerificationCode = "/Customers/ValidateVerificationCode";
+const String loginOP ="/Customers/Login";
+const String registrationOP ="/Customers/Registration";
+const String createProfileOP ="/Profile/CreateProfile";

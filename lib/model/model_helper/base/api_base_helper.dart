@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -39,7 +40,7 @@ class ApiBaseHelper {
     }
   }
 
-  Future<dynamic> post(
+  Future<dynamic>   post(
     String url,
     Object body,
     Function(Map<String, dynamic> json) jsonFun, {
@@ -78,20 +79,22 @@ class ApiBaseHelper {
         }
       }
 
-    } on TimeoutException catch (_) {
-      return FetchDataException('Timeout Exception');
-    } on SocketException {
-      return FetchDataException('Check your internet connection');
+    } on TimeoutException catch (e) {
+      throw 'TimeoutException: ${e.toString().tr}';
+    } on SocketException catch (e) {{
+      throw 'SocketException: ${e.toString().tr}';
     }
 
     // if (kDebugMode) print(json.encode(body));
     // var response = jsonFun(responseJson);
     // return response;
-  }
+
 }
+  }}
 
 dynamic _returnResponse(http.Response response) {
   var responseJson = json.decode(response.body);
+  print(responseJson);
   if (kDebugMode) {
     print(responseJson);
   }
